@@ -1,13 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:lab08/login.dart';
-import 'firebase_options.dart';
+//import 'package:lab08/login.dart';
+import 'package:lab08/firebase_options.dart';
+
+import 'pages/loginpage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+
+  /// await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
   runApp(const MyApp());
 }
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const login(),
+      home: const LoginPage(),
     );
   }
 }
